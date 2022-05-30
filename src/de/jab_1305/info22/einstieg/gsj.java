@@ -1,20 +1,20 @@
-package de.jab_1305.info22;
-
-import de.jab_1305.info22.einstieg.Girokonto;
-
+package de.jab_1305.info22.einstieg;
 public class gsj {
     public static void main(String[] args) {
-        String baumOhneLisbelnICHSLIBELSNICHT = "Hallo"; // Ari: Ich kann das nicht lesen
         Girokonto schorschosKontoMitNiceVielMoney = new Girokonto("Schorscho",
                 69.420f,
-                "Ich hab ne neue Nummer ne neue Nummer");
+                "000O1");
 
         Girokonto AndersVonAnderssonSeinErspartesFrankens = new Girokonto("Sndersson",
                 13.00f,
-                "Ne Niegel Nagel Neue Nummer");
+                "000O2");
 
         schorschosKontoMitNiceVielMoney.eimzahlen(3f);
-        schorschosKontoMitNiceVielMoney.üüüüüüberwiesung(AndersVonAnderssonSeinErspartesFrankens, 2.00f);
+        schorschosKontoMitNiceVielMoney.ueueueueueueberwiesung(AndersVonAnderssonSeinErspartesFrankens, 2.00f);
+        AndersVonAnderssonSeinErspartesFrankens.ueueueueueueberwiesung(schorschosKontoMitNiceVielMoney, 15.0f);
+
+        schorschosKontoMitNiceVielMoney.flipper();
+        AndersVonAnderssonSeinErspartesFrankens.flipper();
 
         System.out.println(AndersVonAnderssonSeinErspartesFrankens.getSkipper());
 
@@ -23,5 +23,7 @@ public class gsj {
 
         System.out.println("\n\n");
         System.out.println(schorschosKontoMitNiceVielMoney.generateKontoAuszug());
+        System.out.println("\n\n");
+        System.out.println(AndersVonAnderssonSeinErspartesFrankens.generateKontoAuszug());
     }
 }

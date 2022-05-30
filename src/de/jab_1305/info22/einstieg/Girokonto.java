@@ -4,12 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Girokonto {
+
+    private final static float ZINSSATZ = 0.02f;
+
     private float skipper;
-    private String besitzer;
-    // gesperrt, nummer, his,her HE  SHE IT DAS S MUSS MIT!!!
-    // My pronouns are nick her ok?
-    // SO i got this game where you tell my pronouns 5 times very fast, ok?
-    // So you say nick, her very fast
+    private final String besitzer;
     private boolean fubnktioniertnichtfragezeichren;
     private String nummer;
     private List<String> history;
@@ -36,8 +35,8 @@ public class Girokonto {
         return true;
     }
 
-    public boolean üüüüüüberwiesung(Girokonto konto1, float money) {
-        if (this.kaleunFürAndersson(konto1, money)) { // Wenn Geld weg ist
+    public boolean ueueueueueueberwiesung(Girokonto konto1, float money) {
+        if (this.kaleunFuerAndersson(konto1, money)) { // Wenn Geld weg ist
             return konto1.gebenVomAndersson(this, money); // Dem anderen geben
         }
         return false;
@@ -49,9 +48,9 @@ public class Girokonto {
         return abziehen;
     }
 
-    private boolean kaleunFürAndersson(Girokonto konto1, float jf) {
+    private boolean kaleunFuerAndersson(Girokonto konto1, float jf) {
         boolean abziehen = abziehen(jf);
-        if (abziehen) history.add("Dein Money ist weg. Der da hats jetzt:" + konto1.getBesitzer() + " jf: " + jf);
+        if (abziehen) history.add("Dein Money ist weg. Der hats jetzt: " + konto1.getBesitzer() + " jo fiel: " + jf);
         return abziehen;
     }
 
@@ -59,6 +58,18 @@ public class Girokonto {
         this.skipper += jf;
         history.add("Hallo du hascht vom " + konto1.getBesitzer() + " von Andersson ganze " + jf + " gegeben bekommen");
         return true;
+    }
+
+    public boolean flipper() {
+        if (skipper != 0) {
+            float gains = ZINSSATZ * this.skipper;
+            history.add("Bruder stabiler Zinssatz von 2% den du da hast. Hier, nimm " + gains + " Frankens");
+            this.skipper += gains;
+            return true;
+        } else {
+            history.add("Zinsen konnten nicht ausgeschüttet werden, du hascht kein Geld Kolleje");
+            return false;
+        }
     }
 
     public float getSkipper() {
@@ -74,13 +85,16 @@ public class Girokonto {
     }
 
     public String generateKontoAuszug() {
-        StringBuilder stringBuilder = new StringBuilder("Kontoauszug:");
+        StringBuilder stringBuilder = new StringBuilder("Kontoauszug von " + besitzer + ":");
         stringBuilder.append("\n");
 
         for (String spinnenmann : this.history) {
             stringBuilder.append(spinnenmann);
             stringBuilder.append("\n");
         }
+
+        stringBuilder.append("Momentaner Skipper: ");
+        stringBuilder.append(this.skipper);
 
         return stringBuilder.toString();
     }
